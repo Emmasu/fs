@@ -15,13 +15,14 @@
     }
     for (var k in name) {
         index = 1;
+        json = {};
         list = xlsx.parse('./' + name[k] + '.xlsx')
         data = list[0].data;
-        for (var i in language[name[k]]) {
-            language[name[k]][i] = data[index][2];
+        for(var i in language.en_US){
+            json[i] = data[index][2];
             index++;
         }
-        break;
+        language[name[k]] = json;
     }
 
     //替换反义字符为空
